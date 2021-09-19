@@ -55,8 +55,18 @@ public class SightingController {
     @RequestMapping("/delete")
     public String deleteSquirrel(Model model, @RequestParam("id") int squirrelId)
     {
+        model.addAttribute("pageTitle", "Delete Squirrel");
+        model.addAttribute("squirrel", squirrelService.getSquirrel(squirrelId));
         sightingService.deleteSquirrel(squirrelId);
         squirrelService.deleteSquirrel(squirrelId);
+
+        return "deletedSquirrel";
+    }
+
+    @RequestMapping("/deletedSquirrel")
+    public String showDeletedSquirrel(Model model, @RequestParam("id") int squirrelId)
+    {
+        model.addAttribute("pageTitle", "Delete Squirrel");
         model.addAttribute("pageTitle", "Pick a Squirrel");
         model.addAttribute("squirrelList", squirrelService.getSquirrelList());
 
@@ -66,6 +76,7 @@ public class SightingController {
     @RequestMapping("/deleteConfirm")
     public String deleteSquirrelConfirm(Model model, @RequestParam("id") int squirrelId)
     {
+        model.addAttribute("pageTitle", "Are you sure?");
         model.addAttribute("squirrel", squirrelService.getSquirrel(squirrelId));
         return "deleteConfirmation";
     }
