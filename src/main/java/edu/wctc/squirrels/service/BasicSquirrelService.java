@@ -1,5 +1,6 @@
 package edu.wctc.squirrels.service;
 
+import edu.wctc.squirrels.entity.Sighting;
 import edu.wctc.squirrels.entity.Squirrel;
 import edu.wctc.squirrels.repo.SquirrelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,13 @@ public class BasicSquirrelService implements SquirrelService {
         return list;
     }
 
-    //public
+    @Override
+    public void deleteSquirrel(int squirrelId)
+    {
+        Optional<Squirrel> s = squirrelRepository.findById(squirrelId);
+        if (s.isPresent())
+        {
+            squirrelRepository.deleteById(squirrelId);
+        }
+    }
 }

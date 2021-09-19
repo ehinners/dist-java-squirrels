@@ -52,7 +52,13 @@ public class SightingController {
     }
 
 
-
+    @RequestMapping("/delete")
+    public String deleteSquirrel(Model model, @RequestParam("id") int squirrelId)
+    {
+        sightingService.deleteSquirrel(squirrelId);
+        squirrelService.deleteSquirrel(squirrelId);
+        return "index";
+    }
 
 
     @RequestMapping("/sightings")

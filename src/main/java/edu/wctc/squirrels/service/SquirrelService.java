@@ -8,4 +8,6 @@ public interface SquirrelService {
     Squirrel getSquirrel(int squirrelId);
 
     List<Squirrel> getSquirrelList();
+
+    public void deleteSquirrel(int squirrelID);
 }

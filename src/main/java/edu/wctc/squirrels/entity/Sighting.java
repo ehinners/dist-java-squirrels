@@ -38,6 +38,8 @@ public class Sighting {
     @Column(name = "spotted_at")
     private LocalDateTime spottedAt;
 
+    @Min(-20)
+    @Max(120)
     @Column(name = "temperature_f")
     private int temperatureF;
 
