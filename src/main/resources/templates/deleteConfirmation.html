@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="frags :: head"></head>
+<body>
+<header th:replace="frags :: logo"></header>
+<h3>Are you SURE you want to delete the <b><u> [[${squirrel.commonName}]]?</u> </b></h3>
+
+<div class="confirmDeleteButton">
+  <br/>
+  <button  th:onclick="|document.location='@{/list}'|">NO</button>
+  <br/>
+  <button  th:onclick="|document.location='@{/delete(id=${squirrel.id})}'|">YES</button>
+</div>
+
+<footer>
+  <a th:href="@{/credits}">Credits</a>
+</footer>
+</body>
+</html>
